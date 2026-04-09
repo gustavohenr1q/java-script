@@ -30,6 +30,6 @@ Entrada --> Processamento --> Saída
 | *= | Multiplicar e atribuir | x *= 4 | x = 20 |
 | / | Dividir | 20 / 2 | 10 |
 | /= | Divir e atribuir | x /= 2 | 10 |
-| ++ | Somar 1 ao resultado | x++ | 11 |
-| -- | Subtrair 1 do resultado | x-- | 10 |
-| % | Resto da divisão | 10&3 | 1 |
+| ++ | Incrementar 1 ao resultado | x++ | 11 |
+| -- | Decrementar 1 do resultado | x-- | 10 |
+| % | Resto da divisão (valor da divisão já concluida) | 10&3 | 1 |
