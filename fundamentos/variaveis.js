@@ -4,24 +4,24 @@
  */
  
 console.clear()
-console.log('Estudo das variáveis')
-console.log('')
+console.log("Estudo das variáveis")
+console.log("")
 
 // Variáveis
-let nome = 'Gustavo Henrique'
+let nome = "Gustavo Henrique"
 let idade = 19
 let peso = 68
 let altura = 1.65
 
-console.log('')
+console.log("")
 
 let vip = true
   
 // Tabela da ficha
-console.log('')
-console.log('--------------------------------------')
-console.log('-           Ficha do aluno            -')
-console.log('--------------------------------------')
+console.log("")
+console.log("--------------------------------------")
+console.log("-           Ficha do aluno           -")
+console.log("--------------------------------------")
 
 // a linha abaixo concatena (união) um texto com o
 // conteúdo da variável
@@ -30,5 +30,8 @@ console.log(`Idade: ${idade} Anos`)
 console.log(`Peso: ${peso} Kg`)
 console.log(`Altura: ${altura}M`)
 console.log(`Vip: ${vip}`)
-console.log('--------------------------------------')
+console.log(`FCM: ${208 - (0.7 * idade)}Kg`)
+// .toFixed(2) formata o resultado em 2 casas decimais
+console.log(`IMC: ${(peso / (altura * altura)).toFixed(2)}`)
+console.log("--------------------------------------")
 
