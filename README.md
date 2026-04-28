@@ -73,8 +73,17 @@ if (condição)
 
 ```javascript
 for (let i = 1; i < 10; i++) {
-// o código é repetido enquanto a condição for verdadeira
+// o código é repetido enquanto a condição (i < 10) for verdadeira
 }
+
+while (condição) {
+// o código é repetido enquanto a condição é verdadeira
+}
+
+do {
+// o código é executado uma vez independente da condição, depois
+// o código é repetido enquanto a condição for verdadeira
+} while (condição)
 
 
 ```
