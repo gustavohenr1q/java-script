@@ -29,4 +29,4 @@ qntlatas = parede / rendimento
 // Saida
 console.log('')
 
-console.log(`O resultade é de: ${Math.ceil(qntlatas)}litros de tinta para a parede`)
+console.log(`O resultade é de: ${Math.ceil(qntlatas)}L de tinta para a parede`)
