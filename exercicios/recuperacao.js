@@ -1,6 +1,6 @@
 /**
- * SISTEMA DE CALCULADORAS ESTILIZADO
- * Autor: Gustavo Henrique
+ * Atividade de recuperação de nota
+ * @author Gustavo Henrique
  */
 
 const prompt = require('prompt-sync')()
