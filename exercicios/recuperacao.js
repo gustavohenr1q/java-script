@@ -6,7 +6,7 @@
 const prompt = require('prompt-sync')()
 require('colors')
 
-// ================= FUNÇÕES =================
+// ================= FUNÇÕES ================
 
 function calcularBlocos(area, tipo) {
     if (tipo === 1) return area * 25

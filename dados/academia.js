@@ -14,7 +14,7 @@ let nome, idade, peso, altura, vip
 
 let matricula = 1 // contador de matricula
 
-let opcaoMenu, opcaoConsulta, opcaoRelatorio
+let opcaoMenu, opcaoConsulta, opcaoRelatorio, busca
 
 
 // Array Principal
@@ -187,6 +187,39 @@ function consultarAlunos() {
         console.log("=== BUSCAR ALUNO ===")
         console.log("")
 
+        //lógica principal (busca pelo nome)
+        //.tolowerCase -> converter tudo em letras minúsculas
+        busca = prompt("Digite o nome do aluno: ").toLowerCase()
+
+        //pesquisa(filtro) na estrutura de dados
+        let encontrados = alunos.filter((a) => {
+            return a[1].toLowerCase().includes(busca)
+        })
+
+
+        //validação
+        if (encontrados.length === 0) {
+            console.log("")
+            console.log("Aluno não encontrado.")
+        } else {
+
+             //console.table(alunosOrdenados)
+            //criando um cabeçalho para tabela
+            let alunoEncontrado = encontrados
+                .map((a) => {
+                    return{
+                        Matrícula: a[0],
+                        Nome: a[1],
+                        Idade: a[2],
+                        Peso: a[3],
+                        Altura: a[4],
+                        VIP: a[5]
+                    }
+                })
+                console.table(alunoEncontrado)
+        }
+
+        console.log("")
         prompt("ENTER...")
     }
 
@@ -271,83 +304,86 @@ function gerarFichaAluno() {
     console.log("=== FICHA DO ALUNO ===")
     console.log("")
 
+    let buscarMatricula = Number(prompt("Digite a matricula do aluno: "))
 
+    //lógica principal (buscar index da estrutura de dados)
+    let indice = alunos.findIndex((a) => {
+        return a[0] === buscarMatricula
+    })
+
+    //validação da busca(pelo index do array)
+    if (indice === -1) {
+        console.log("Aluno não encontrado")
+    } else {
+        nome = alunos[indice][1]
+        idade = alunos[indice][2]
+        peso = alunos[indice][3]
+        altura = alunos[indice][4]
+        vip = alunos[indice][5]
+
+        // status VIP
+        let statusVip
+        if (vip === true) {
+            statusVip = "Sim (Direito a personal trainer)"
+        } else {
+            statusVip = "Não"
+        }
+
+        //cálculos
+        let fcm = (208 - (0.7 * idade)).toFixed(0)
+        let agua = (peso * 35) / 1000
+        let imc = (peso / (altura * altura))
+        let pesoIdealMin = (18.5 * (altura * altura)).toFixed(1)
+        let pesoIdealMax = (24.9 * (altura * altura)).toFixed(1)
+        let statusImc
+        if (imc < 18.5) {
+            statusImc = "Abaixo do Peso"
+        } else if (imc < 25){
+            statusImc = "Peso Normal"
+        } else if (imc < 30){
+            statusImc = "Sobrepeso"
+        } else if (imc < 35){
+            statusImc = "Obesdidade Grau I"
+        } else if (imc < 40){
+            statusImc = "Obesidade Grau II"
+        } else {
+            statusImc = "Obesidade Grau III"
+        }
+
+        //exibição
+
+        console.log("-------------------------------------------------------------------------------")
+
+        console.log("                             Ficha do Aluno                                    ")
+
+        console.log("-------------------------------------------------------------------------------")
+
+        console.log(`Matricula: ${buscarMatricula}`)
+        console.log(`Nome: ${nome}`)
+        console.log(`Idade: ${idade}`)
+        console.log(`Peso: ${peso}`)
+        console.log(`Altura: ${altura}`)
+        console.log(`VIP: ${vip}`)
+        console.log("")
+        console.log(`FCM: ${fcm} bpm`)
+        console.log(`Água Recomendada: ${agua.toFixed(1)} litros/dia`)
+        console.log(`IMC: ${imc.toFixed(2)} ${statusImc}`)
+        console.log(`Faixa de peso ideal: ${pesoIdealMin} Kg até ${pesoIdealMax} Kg`)
+
+        console.log("-------------------------------------------------------------------------------")
+    }
+
+
+
+    console.log("")
     prompt("ENTER....")
 }
 // FICHA DO ALUNO end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
-// Relatórios >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-function gerarRelatorios() {
-    do {
-
-        // SUBMENU
-        console.clear()
-        console.log("=== RELATÓRIOS DOS ALUNOS ===")
-        console.log("")
-
-        console.log("1. Alunos VIP")
-        console.log("2. Média de idade")
-        console.log("3. % IMC dos alunos")
-        console.log("0. Voltar")
-        console.log("")
-
-        opcaoRelatorio = Number(prompt("Escolha: "))
-
-        switch (opcaoRelatorio) {
-            case 1:
-                gerarRelatorioVip()
-                break;
-
-            case 2:
-                gerarRelatorioMediaIdade()
-                break;
-
-            case 3:
-                gerarRelatorioImc()
-                break;
-
-            case 0:
-                break
-
-            default:
-                console.log("")
-                console.log("Opção Inválida!")
-                prompt("ENTER...")
-        }
-
-    } while (opcaoRelatorio !== 0)
-
-    // Relatório de alunos VIP
-    function gerarRelatorioVip() {
-        console.clear()
-        console.log("=== ALUNOS VIP ===")
-        console.log("")
-
-        prompt("ENTER...")
-    }
-
-    // Relatório Média de idade dos alunos
-    function gerarRelatorioMediaIdade() {
-        console.clear()
-        console.log("=== MÉDIA DE IDADES ===")
-        console.log("")
-
-        prompt("ENTER...")
-    }
-
-    // Relatório de percentual de IMC
-    function gerarRelatorioImc() {
-        console.clear()
-        console.log("=== % IMC DOS ALUNOS ===")
-        console.log("")
-
-        prompt("ENTER...")
-    }
-
-}
-// Relatórios end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+console.log(`Abaixo do peso: ${percAbaixo.toFixed(1)}%`)
+            console.log(graficoAbaixo)
 
 // Iniciar o sistema
 mainAcademia()

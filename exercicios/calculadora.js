@@ -38,6 +38,11 @@ function raizQuadrada(num1) {
     return Math.sqrt(num1)
 }
 
+function porcentagem(num1, num2) {
+    return (num1 * num2) / 100
+    
+}
+
 // ===============================================================================================
 
 // Função principal (main)
@@ -59,7 +64,7 @@ function iniciarCalculadora() {
                 console.log("=== Somar ===")
                 console.log("")
                 num1 = Number(prompt("Digite o Primeiro Número: "))
-                num2 = Number(prompt("Digite o Primeiro Número: "))
+                num2 = Number(prompt("Digite o Segundo Número: "))
                 resultado = somar(num1, num2)
 
                 break
@@ -70,7 +75,7 @@ function iniciarCalculadora() {
                 console.log("=== Subtrair ===")
                 console.log("")
                 num1 = Number(prompt("Digite o Primeiro Número: "))
-                num2 = Number(prompt("Digite o Primeiro Número: "))
+                num2 = Number(prompt("Digite o Segundo Número: "))
                 resultado = subtrair(num1, num2)
 
                 break
@@ -81,7 +86,7 @@ function iniciarCalculadora() {
                 console.log("=== Multiplicar ===")
                 console.log("")
                 num1 = Number(prompt("Digite o Primeiro Número: "))
-                num2 = Number(prompt("Digite o Primeiro Número: "))
+                num2 = Number(prompt("Digite o Segundo Número: "))
                 resultado = multiplicar(num1, num2)
 
                 break
@@ -92,7 +97,7 @@ function iniciarCalculadora() {
                 console.log("=== Dividir ===")
                 console.log("")
                 num1 = Number(prompt("Digite o Primeiro Número: "))
-                num2 = Number(prompt("Digite o Primeiro Número: "))
+                num2 = Number(prompt("Digite o Segundo Número: "))
                 resultado = dividir(num1, num2)
 
                 break
@@ -104,6 +109,13 @@ function iniciarCalculadora() {
                 num1 = Number(prompt("Digite o número desejado: "))
                 resultado = raizQuadrada(num1)
 
+                break
+
+                case 6:
+                    console.log("")
+                num1 = Number(prompt("Digite a porcentagem: "))
+                num2 = Number(prompt("Digite o valor: "))
+                resultado = porcentagem(num1, num2)
                 break
 
                 // Caso nenhuma opção for verdadeira
@@ -132,6 +144,7 @@ function mostrarMenu() {
     console.log("3. Multiplicar")
     console.log("4. Dividir")
     console.log("5. Raiz Quadrada")
+    console.log("6. Porcentagem")
     console.log("0. Sair")
 }
 
